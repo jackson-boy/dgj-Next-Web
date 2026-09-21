@@ -241,7 +241,7 @@ export class ChatGPTApi implements LLMApi {
 
       if (isGpt5) {
   	// Remove max_tokens if present
-  	delete requestPayload.max_tokens;
+  	delete (requestPayload as any).max_tokens;
   	// Add max_completion_tokens (or max_completion_tokens if that's what you meant)
   	requestPayload["max_completion_tokens"] = modelConfig.max_tokens;
 
